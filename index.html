@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied Minerals, Inc.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Primary: Dark Teal/Forest Green (Professional Brand Color) */
+            --color-primary: #2E463E; 
+            /* Contrast: Sky Blue (User requested CTA color) */
+            --color-contrast: #0EA5E9; 
+            /* Secondary: Lighter Bronze/Taupe (Earth tone/Mineral color) */
+            --color-secondary: #A1887F; 
+            --color-text: #2c2c2c;
+            --color-light: #f5f5f5;
+        }
+        /* Custom Classes reflecting the new scheme */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-text);
+            background-color: var(--color-light);
+            min-height: 100vh;
+        }
+        .bg-primary { background-color: var(--color-primary); }
+        .text-primary { color: var(--color-primary); }
+        .border-primary { border-color: var(--color-primary); }
+        .bg-contrast { background-color: var(--color-contrast); }
+        .bg-secondary { background-color: var(--color-secondary); } /* New class for the secondary color */
+        .hover\:bg-contrast-dark:hover { background-color: #0c8cdb; } 
+        
+        /* Custom styling for the logo SVG */
+        #logo-svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+            transition: transform 0.3s ease;
+        }
+        #logo-svg:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hero section visual element mimicry */
+        .hero-visual {
+            background-image: linear-gradient(rgba(46, 70, 62, 0.7), rgba(46, 70, 62, 0.7)), url('https://placehold.co/1200x400/2E463E/ffffff?text=Industrial+Minerals+Theme+Visual');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="flex flex-col">
+
+    <!-- Header & Navigation (Dark Teal Primary) -->
+    <header class="bg-primary shadow-lg sticky top-0 z-10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo Area -->
+            <div id="logo-container" class="flex items-center space-x-2 cursor-pointer" onclick="showPage('home')">
+                <!-- Inline SVG Logo: Gold/Bronze gradient kept -->
+                <svg id="logo-svg" viewBox="0 0 100 100" class="w-8 h-8">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgb(200,180,160);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgb(121,85,72);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <polygon points="50,10 10,90 28,90 35,70 65,70 72,90 90,90" fill="url(#logoGradient)" stroke="none"/>
+                    <!-- Crossbar gap uses the new primary color to blend subtly -->
+                    <polygon points="35,70 65,70 50,40" fill="#2E463E" opacity="0.1"/>
+                </svg>
+                <h1 class="text-2xl font-bold text-white tracking-wider">APPLIED MINERALS</h1>
+            </div>
+            
+            <!-- Navigation Links -->
+            <div class="flex space-x-4">
+                <button id="nav-home" class="text-white hover:text-gray-200 font-medium transition duration-150 p-2 rounded-lg" onclick="showPage('home')">Home</button>
+                <!-- Sky Blue contrast button -->
+                <button id="nav-contact" class="text-white bg-contrast px-4 py-2 rounded-lg shadow-md transition duration-150 hover:bg-contrast-dark" onclick="showPage('contact')">Inquire Now</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow w-full">
+
+        <!-- Page 1: Home Page -->
+        <section id="home-page" class="page-content space-y-12 max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+            
+            <!-- Hero Section mimicking visual from archive -->
+            <div class="hero-visual text-white text-center py-20 rounded-xl shadow-xl">
+                <h2 class="text-4xl sm:text-5xl font-extrabold mb-4">
+                    The Natural Solution
+                </h2>
+                <p class="text-xl max-w-4xl mx-auto">
+                    Applied Minerals, Inc. is a leading provider of Halloysite Clay (Dragonite™) and Iron Oxide (Amiron™) solutions, addressing the need for high-performance products in a range of industrial applications.
+                </p>
+            </div>
+
+            <!-- Products Summary Grid -->
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Product 1: Dragonite™ (Halloysite Clay) -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-primary transition transform hover:scale-[1.02]">
+                    <h3 class="text-3xl font-bold text-primary mb-3">Dragonite™ Halloysite Clay</h3>
+                    <p class="text-gray-700 mb-4">
+                        Known for its unique tubular morphology and high purity, Dragonite™ is essential for advanced applications.
+                    </p>
+                    <ul class="list-disc list-inside text-sm text-gray-500 space-y-1">
+                        <li>**Controlled Release:** Used as a carrier for various active ingredients.</li>
+                        <li>**Cosmetics:** Featured in high-performance cosmetic formulations.</li>
+                        <li>**Catalysts & Molecular Sieves:** High surface area and thermal stability.</li>
+                        <li>**Polymer Composites:** Enhancing mechanical properties and performance.</li>
+                    </ul>
+                </div>
+
+                <!-- Product 2: Amiron™ (Iron Oxide) -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-primary transition transform hover:scale-[1.02]">
+                    <h3 class="text-3xl font-bold text-primary mb-3">Amiron™ Iron Oxides</h3>
+                    <p class="text-gray-700 mb-4">
+                        Sourced from the Dragon Mine, Amiron™ provides exceptional purity for technical and pigmentary needs.
+                    </p>
+                    <ul class="list-disc list-inside text-sm text-gray-500 space-y-1">
+                        <li>**Paints & Coatings:** Superior lightfastness and reduced dosage.</li>
+                        <li>**Construction:** Durable color for concrete, pavers, and roofing granules.</li>
+                        <li>**Technical Applications:** Uses in environmental remediation and flame retardancy.</li>
+                        <li>**High Purity:** Ultra-low trace metal impurities for sensitive uses.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- New Featured Section using Secondary (Mineral) Color -->
+            <div class="bg-secondary p-8 rounded-xl shadow-xl text-white md:flex items-center space-y-4 md:space-y-0 md:space-x-8">
+                <div class="md:w-3/4">
+                    <h3 class="text-3xl font-bold mb-2">Purity and Performance: Amiron™ in Pigments</h3>
+                    <p class="text-gray-100">
+                        Our Amiron™ advanced natural Iron Oxides deliver durability and rich color to construction and coating applications. We achieve **superior lightfastness** and **reduced dosage** compared to standard natural oxides, directly addressing the industry's need for high-performance, cost-effective pigments.
+                    </p>
+                </div>
+                <div class="md:w-1/4 flex justify-end">
+                    <button class="bg-primary text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 hover:bg-contrast hover:text-white">
+                        View Technical Data
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Page 2: Contact Page -->
+        <section id="contact-page" class="page-content hidden">
+            <div class="bg-white p-8 rounded-xl shadow-xl max-w-lg mx-auto space-y-6 m-4 sm:m-6 lg:m-8">
+                <h2 class="text-3xl font-bold text-primary text-center">Inquire About Our Products</h2>
+                <p class="text-gray-600 text-center">
+                    Please fill out the form below to submit your inquiry directly to the Applied Minerals team.
+                </p>
+
+                <form id="inquiry-form" class="space-y-4">
+                    <!-- Name Field -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                        <input type="text" id="name" name="name" required
+                               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150 shadow-sm">
+                    </div>
+
+                    <!-- Phone Field -->
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" id="phone" name="phone"
+                               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150 shadow-sm">
+                    </div>
+
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" id="email" name="email" required
+                               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150 shadow-sm">
+                    </div>
+
+                    <!-- Message Field -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Inquiry</label>
+                        <textarea id="message" name="message" rows="4" required
+                                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150 shadow-sm"></textarea>
+                    </div>
+
+                    <!-- Submit Button - Sky Blue contrast color -->
+                    <button type="submit"
+                            class="w-full bg-contrast text-white font-bold py-3 rounded-lg hover:bg-contrast-dark transition duration-300 shadow-md transform hover:shadow-lg">
+                        Submit Inquiry
+                    </button>
+                </form>
+
+                <!-- Success Message Box -->
+                <div id="success-message" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative mt-4 hidden" role="alert">
+                    <strong class="font-bold">Success!</strong>
+                    <!-- Updated the success message to be generic, matching the non-displayed email -->
+                    <span class="block sm:inline">Your inquiry has been prepared for dispatch to our team.</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center p-4 mt-8">
+        <p class="text-sm">&copy; 2025 Applied Minerals, Inc. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Function to switch between pages
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.add('hidden'));
+
+            const activePage = document.getElementById(`${pageId}-page`);
+            if (activePage) {
+                activePage.classList.remove('hidden');
+            }
+        }
+
+        // Initialize to Home Page
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('home');
+
+            const form = document.getElementById('inquiry-form');
+            const successMessage = document.getElementById('success-message');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // 1. Collect form data
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                // 2. Construct the email link (mailto)
+                // THE RECIPIENT REMAINS HARDCODED IN THE JAVASCRIPT
+                const recipient = 'ccarney@appliedminerals.com';
+                const subject = encodeURIComponent('New Website Inquiry from ' + name);
+                
+                let body = `Name: ${name}\n`;
+                body += `Email: ${email}\n`;
+                if (phone) body += `Phone: ${phone}\n\n`;
+                body += `--- Inquiry ---\n${message}`;
+
+                const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${encodeURIComponent(body)}`;
+
+                // 3. Open mail client (This is a mock interaction since we can't send real emails)
+                window.location.href = mailtoLink; 
+                
+                // Show success message and clear form
+                successMessage.classList.remove('hidden');
+                form.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 5000);
+
+                console.log(`Email prepared for: ${recipient}`);
+                console.log(`Subject: ${decodeURIComponent(subject)}`);
+                console.log(`Body: ${decodeURIComponent(body)}`);
+            });
+        });
+    </script>
+</body>
+</html>
